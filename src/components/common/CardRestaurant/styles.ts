@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const RestaurantCard = styled.div`
   display: flex;
@@ -14,14 +14,15 @@ export const RestaurantCard = styled.div`
     transform: translateY(-1px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
-`;
+`
 
 export const RestaurantImage = styled.img`
   height: 167px;
   width: 100%;
   padding: 8px 8px 0 8px;
   object-fit: cover;
-`;
+  cursor: pointer;
+`
 
 export const RestaurantText = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ export const RestaurantText = styled.div`
   flex: 1;
   gap: 8px;
   padding: 8px;
-`;
+`
 
 export const RestaurantButton = styled.div`
   padding-left: 8px;
@@ -42,4 +43,4 @@ export const RestaurantButton = styled.div`
   &:hover {
     opacity: 0.8;
   }
-`;
+`

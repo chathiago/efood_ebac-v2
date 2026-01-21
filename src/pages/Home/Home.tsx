@@ -9,34 +9,29 @@ import { restaurantsData } from '../../data/restaurantsData';
 
 import efoodLogo from '/logo-efood.png';
 
-import {
-  Header,
-  HeaderLogo,
-  HeaderTitle,
-  HeaderGrid
-} from './styles';
+import * as S from './styles';
 
 export function Home() {
   return (
     <>
-      <Header>
-        <HeaderLogo>
+      <S.Header>
+        <S.HeaderLogo>
           <Link to="/">
             <img src={efoodLogo} alt="Logo Efood" />
           </Link>
-        </HeaderLogo>
+        </S.HeaderLogo>
 
-        <HeaderTitle>
+        <S.HeaderTitle>
           <Text variant="title" color="primary">
             Viva experiências gastronômicas
             <br />
             no conforto da sua casa
           </Text>
-        </HeaderTitle>
-      </Header>
+        </S.HeaderTitle>
+      </S.Header>
 
       <main>
-        <HeaderGrid>
+        <S.HeaderGrid>
           <Grid columns={2} gap="80px">
             {restaurantsData.map((card, index) => (
               <CardHighlight
@@ -50,7 +45,7 @@ export function Home() {
               />
             ))}
           </Grid>
-        </HeaderGrid>
+        </S.HeaderGrid>
       </main>
 
       <Footer />

@@ -5,14 +5,7 @@ import { Text } from '../../ui/Text';
 import { Button } from '../../ui/Button';
 import { categoryRoutes } from '../../../data/categoryRoutes';
 
-import {
-  Card,
-  CardTags,
-  CardHeader,
-  CardDescription,
-  CardButton,
-  CardImage
-} from './styles';
+import * as S from './styles';
 
 interface CardProps {
   image: string;
@@ -32,31 +25,35 @@ export function CardHighlight({
   category
 }: CardProps) {
   return (
-    <Card>
-      <CardTags>
-        {highlight && <Button variant="primary">{highlight}</Button>}
+    <>
+      <S.Card>
+        <S.CardTags>
+          {highlight && <Button variant="primary">{highlight}</Button>}
+
+          <Link to={categoryRoutes[category]}>
+            <Button variant="primary">{category}</Button>
+          </Link>
+        </S.CardTags>
 
         <Link to={categoryRoutes[category]}>
-          <Button variant="primary">{category}</Button>
+          <S.CardImage src={image} alt={title} />
         </Link>
-      </CardTags>
 
-      <CardImage src={image} alt={title} />
+        <S.CardHeader>
+          <Text variant="subtitle" color="primary">{title}</Text>
+          <Text variant="subtitle" color="primary">{rating} ⭐</Text>
+        </S.CardHeader>
 
-      <CardHeader>
-        <Text variant="subtitle" color="primary">{title}</Text>
-        <Text variant="subtitle" color="primary">{rating} ⭐</Text>
-      </CardHeader>
+        <S.CardDescription>
+          <Text variant="body" color="primary">{description}</Text>
+        </S.CardDescription>
 
-      <CardDescription>
-        <Text variant="body" color="primary">{description}</Text>
-      </CardDescription>
-
-      <CardButton>
-        <Link to={categoryRoutes[category]}>
-          <Button variant="primary">Saiba mais</Button>
-        </Link>
-      </CardButton>
-    </Card>
+        <S.CardButton>
+          <Link to={categoryRoutes[category]}>
+            <Button variant="primary">Saiba mais</Button>
+          </Link>
+        </S.CardButton>
+      </S.Card >
+    </>
   );
 }

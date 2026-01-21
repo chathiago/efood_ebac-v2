@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 import { Text } from '../../ui/Text';
 import { categoryRoutes } from '../../../data/categoryRoutes';
 
-import {
-  CategoryHeaderStyled,
-  HeaderCategoryLogo,
-  CategoryBanner,
-  CategoryTitle,
-  CategoryRestaurant
-} from './styles';
+import * as S from './styles';
 
 import efoodLogo from '/logo-efood.png';
 
@@ -39,33 +33,33 @@ export function CategoryHeader({ category }: CategoryHeaderProps) {
 
   return (
     <>
-      <CategoryHeaderStyled>
+      <S.CategoryHeaderStyled>
         <Text variant="subtitle" color="primary">
           Restaurantes
         </Text>
 
         <Link to="/">
-          <HeaderCategoryLogo src={efoodLogo} alt="Efood Logo" />
+          <S.HeaderCategoryLogo src={efoodLogo} alt="Efood Logo" />
         </Link>
 
         <Text variant="subtitle" color="primary">
           <span>0</span> produto(s) no carrinho
         </Text>
-      </CategoryHeaderStyled>
+      </S.CategoryHeaderStyled>
 
-      <CategoryBanner $bgImage={banner}>
-        <CategoryTitle>
+      <S.CategoryBanner $bgImage={banner}>
+        <S.CategoryTitle>
           <Text variant="title" color="highlight" weight="light">
             {displayCategory}
           </Text>
 
-          <CategoryRestaurant>
+          <S.CategoryRestaurant>
             <Text variant="title" color="highlight">
               {name}
             </Text>
-          </CategoryRestaurant>
-        </CategoryTitle>
-      </CategoryBanner>
+          </S.CategoryRestaurant>
+        </S.CategoryTitle>
+      </S.CategoryBanner>
     </>
   );
 }

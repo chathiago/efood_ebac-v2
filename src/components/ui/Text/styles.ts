@@ -1,13 +1,13 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
-export type TextVariant = "title" | "subtitle" | "body" | "small";
-export type TextWeight = "normal" | "bold" | "light";
-export type ThemeColor = "primary" | "secondary" | "highlight" | "text";
+export type TextVariant = 'title' | 'subtitle' | 'body' | 'small'
+export type TextWeight = 'normal' | 'bold' | 'light'
+export type ThemeColor = 'primary' | 'secondary' | 'highlight' | 'text'
 
 interface StyledTextProps {
-  variant: TextVariant;
-  weight?: TextWeight;
-  color: ThemeColor;
+  variant: TextVariant
+  weight?: TextWeight
+  color: ThemeColor
 }
 
 const variantStyles = {
@@ -22,18 +22,19 @@ const variantStyles = {
   body: css`
     font-size: 14px;
     font-weight: 400;
+    line-height: 1.5;
   `,
   small: css`
     font-size: 12px;
     font-weight: 300;
-  `,
-};
+  `
+}
 
 const weightMap: Record<TextWeight, number> = {
   normal: 400,
   bold: 700,
-  light: 200,
-};
+  light: 200
+}
 
 export const StyledText = styled.span<StyledTextProps>`
   ${({ variant }) => variantStyles[variant]};
@@ -45,4 +46,4 @@ export const StyledText = styled.span<StyledTextProps>`
     css`
       font-weight: ${weightMap[weight]};
     `}
-`;
+`

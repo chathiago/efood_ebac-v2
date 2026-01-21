@@ -1,34 +1,30 @@
 import { Button } from '../../ui/Button';
 import { Text } from '../../ui/Text';
 
-import {
-  RestaurantCard,
-  RestaurantImage,
-  RestaurantText,
-  RestaurantButton
-} from './styles';
+import * as S from './styles';
 
-interface CardRestaurantProps {
+type CardRestaurantProps = {
   image: string;
   title: string;
   description: string;
+  onClick: () => void
 }
 
-export function CardRestaurant({ image, title, description }: CardRestaurantProps) {
+export default function CardRestaurant({ image, title, description, onClick }: CardRestaurantProps) {
   return (
-    <RestaurantCard>
-      <RestaurantImage src={image} alt={title} />
+    <S.RestaurantCard onClick={onClick}>
+      <S.RestaurantImage src={image} alt={title} />
 
-      <RestaurantText>
+      <S.RestaurantText>
         <Text variant="subtitle" color="secondary">{title}</Text>
         <Text variant="body" color="secondary" weight="normal">{description}</Text>
-      </RestaurantText>
+      </S.RestaurantText>
 
-      <RestaurantButton>
+      <S.RestaurantButton>
         <Button variant="secondary" fullWidth={true}>
           Adicionar ao carrinho
         </Button>
-      </RestaurantButton>
-    </RestaurantCard>
+      </S.RestaurantButton>
+    </S.RestaurantCard>
   );
 }
