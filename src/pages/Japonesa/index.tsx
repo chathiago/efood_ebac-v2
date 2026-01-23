@@ -5,11 +5,9 @@ import { Grid } from '../../components/layout/Grid';
 import { japonesaFoods } from '../../data/japanFoods';
 import CardRestaurant from '../../components/common/CardRestaurant';
 import { CardModal } from '../../components/modal/CardModal';
-import { foodsCardModal } from '../../data/japanFoodsModal';
 import { PageGrid } from '../../components/layout/PageGrid/styles';
 
 export function Japonesa() {
-
   const [selectIndex, setSelectIndex] = useState<number | null>(null)
 
   const openModal = (index: number) => {
@@ -19,6 +17,9 @@ export function Japonesa() {
   const closeModal = () => {
     setSelectIndex(null)
   }
+
+  const selectedFood =
+    selectIndex !== null ? japonesaFoods[selectIndex] : null
 
   return (
     <>
@@ -31,20 +32,20 @@ export function Japonesa() {
               key={index}
               image={card.image}
               title={card.title}
-              description={card.description}
+              resume={card.resume}
               onClick={() => openModal(index)}
             />
           ))}
         </Grid>
       </PageGrid>
 
-      {selectIndex !== null && foodsCardModal[selectIndex] && (
+      {selectedFood && (
         <CardModal
-          image={foodsCardModal[selectIndex].image}
-          title={foodsCardModal[selectIndex].title}
-          description={foodsCardModal[selectIndex].description}
-          serves={foodsCardModal[selectIndex].serves}
-          price={foodsCardModal[selectIndex].price}
+          image={selectedFood.image}
+          title={selectedFood.title}
+          description={selectedFood.description}
+          serves={selectedFood.serves}
+          price={selectedFood.price}
           onClose={closeModal}
         />
       )}

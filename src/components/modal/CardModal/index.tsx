@@ -6,8 +6,8 @@ type CardModalProps = {
   image: string
   title: string
   description: string
-  serves: string
-  price: number
+  serves?: string
+  price?: number
   onClose: () => void
 }
 
@@ -24,7 +24,7 @@ export function CardModal({ image, title, description, serves, price, onClose }:
 
           <div>
             <Button variant='secondary'>
-              Adicionar ao carrinho - {price}
+              Adicionar ao carrinho - R$ {price}
             </Button>
           </div>
         </S.CardModalContent>

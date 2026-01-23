@@ -5,20 +5,21 @@ import { Footer } from '../../components/common/Footer';
 import { Grid } from '../../components/layout/Grid';
 import CardRestaurant from '../../components/common/CardRestaurant';
 import { CardModal } from '../../components/modal/CardModal';
-import { foodsCardModal } from '../../data/italianFoodsModal';
 import { PageGrid } from '../../components/layout/PageGrid/styles';
 
 export function Italiana() {
-
-  const [selectIndex, setSelectIndex] = useState<number | null>(null)
+  const [selectIndex, setSelectIndex] = useState<number | null>(null);
 
   const openModal = (index: number) => {
-    setSelectIndex(index)
-  }
+    setSelectIndex(index);
+  };
 
   const closeModal = () => {
-    setSelectIndex(null)
-  }
+    setSelectIndex(null);
+  };
+
+  const selectedFood =
+    selectIndex !== null ? italianaFoods[selectIndex] : null
 
   return (
     <>
@@ -31,25 +32,23 @@ export function Italiana() {
               key={index}
               image={card.image}
               title={card.title}
-              description={card.description}
+              resume={card.resume}
               onClick={() => openModal(index)}
             />
           ))}
         </Grid>
       </PageGrid>
 
-      {selectIndex !== null && foodsCardModal[selectIndex] && (
+      {selectedFood && (
         <CardModal
-          image={foodsCardModal[selectIndex].image}
-          title={foodsCardModal[selectIndex].title}
-          description={foodsCardModal[selectIndex].description}
-          serves={foodsCardModal[selectIndex].serves}
-          price={foodsCardModal[selectIndex].price}
+          image={selectedFood.image}
+          title={selectedFood.title}
+          description={selectedFood.description}
+          serves={selectedFood.serves}
+          price={selectedFood.price}
           onClose={closeModal}
         />
       )}
-
-
 
       <Footer />
     </>

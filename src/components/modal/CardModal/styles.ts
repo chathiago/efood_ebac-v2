@@ -14,17 +14,29 @@ export const CardModal = styled.div`
   display: flex;
   background-color: ${({ theme }) => theme.colors.primary};
   width: 1024px;
-  height: 344px;
+  padding: 32px;
+  align-items: center;
+  gap: 32px;
 
   img {
-    padding: 32px 24px 32px 32px;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
   }
 `
 
 export const CardModalContent = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 16px;
-  padding-top: 32px;
-  padding-right: 32px;
+  flex: 1;
+  overflow: hidden;
+  word-break: break-word;
+
+  button {
+    align-self: flex-start;
+  }
 `
